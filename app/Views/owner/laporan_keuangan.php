@@ -1,8 +1,5 @@
- <nav id="sidebar">
-      <header>Manajemen Keuangan UMKM  </header>
-        <button class="nav-toggle" id="navToggle">
-        ☰ 
-      </button>
+
+     
       <!-- <input type="search" id="navSearch" placeholder="Cari menu..." /> -->
       <a class="nav-link" href="/owner/kelola_menu">Kelola Menu</a>
       <a class="nav-link" href="/owner/laporan_keuangan" >Laporan keuangan</a>
@@ -10,7 +7,7 @@
        <footer>Logged in as <span id="userInfo"></span></footer>
     </nav>
 
-<div class="container mt-4">
+<div class="container mt-4"><br>
     <h2 class="mb-4">Laporan Keuangan</h2>
     <!-- Elemen untuk menampilkan pegawai yang sedang login -->
     <div class="alert alert-info">
@@ -41,6 +38,76 @@
           <th>Dibuat Oleh</th> 
         </tr>
 
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>21/11/2025</td>
+            <td>Penjualan</td>
+            <td>Rp200.000</td>
+            <td class="text-danger">-Rp100.000</td>
+            <td class="text-success">+Rp100.000</td>
+            <td><span class="badge text-bg-success">aktif</span></td>
+            <td>Aep samsudin</td>
+        </tr>
         <tr>
             <td>1</td>
             <td>21/11/2025</td>
