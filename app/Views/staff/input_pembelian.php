@@ -1,6 +1,14 @@
 
+      <!-- <input type="search" id="navSearch" placeholder="Cari menu..." /> -->
+      <!-- <a class="nav-link active" data-page="kelola_menu.html">Kelola Menu</a>
+      <a class="nav-link" data-page="laporan_keuangan.html">Laporan Keuangan</a> -->
+      <a class="nav-link" href="/staff/input_pembelian">Input Pembelian</a>
+      <a class="nav-link" href="/staff/input_penjualan" >Input Penjualan</a>
+      <a class="nav-link text-danger" id="logoutBtn">Logout</a>
+       <footer>Logged in as <span id="userInfo"></span></footer>
+    </nav>
 
-    <div class="container mt-4 ">
+    <div class="container mt-4 "><br>
    
      <h2 class="mb-4">Input Pembelian Bahan Baku</h2>
 

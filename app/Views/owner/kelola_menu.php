@@ -1,18 +1,17 @@
- <nav class="nav-menu" id="sidebar">
-      <header>Manajemen Keuangan UMKM  </header>
-       <button class="nav-toggle" id="navToggle">
-        ☰ 
-      </button>
+
       <!-- <input type="search" id="navSearch" placeholder="Cari menu..." /> -->
 
-      <a class="nav-link" href="/owner/kelola_menu">Kelola Menu</a>
-      <a class="nav-link" href="/owner/laporan_keuangan" >Laporan keuangan</a>
-      <a class="nav-link text-danger" id="logoutBtn">Logout</a>
+
+     <li><a class="nav-link" href="/owner/kelola_menu">Kelola Menu</a></li> 
+    <li> <a class="nav-link" href="/owner/laporan_keuangan" >Laporan keuangan</a></li> 
+      <li><a class="nav-link text-danger" id="logoutBtn">Logout</a></li>
+</ul>
        <footer>Logged in as <span id="userInfo"></span></footer>
+
     </nav>
 
-    <div class="container mt-4">
-    <h2 class="mb-4">Kelola Menu</h2>
+    <div class="container mt-4"><br>
+    <h2 class="mb-10">Kelola Menu</h2>
     <button type="button" class="btn btn-primary mb-3" id="btnAddMenu" >Tambah Menu Baru</button>
 
     <table class="table table-bordered table-hover align-middle">

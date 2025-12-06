@@ -8,6 +8,10 @@ use App\Controllers\Staff;
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>E-UMKM</title>
+  <!-- fav icon -->
+ <link rel="icon" type="image/png" href="https://icons.getbootstrap.com/icons/cup-hot/"/>
+  <!-- Bootstrap CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     
@@ -18,55 +22,72 @@ use App\Controllers\Staff;
     }
     .wrapper {
       display: flex;
-
       height: 100vh;
-      overflow: scroll;
+      overflow: hidden;
     }
     #sidebar {
+   
       width: 250px;
       background-color: #1e3a8a;
       color: white;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease;
+      transform: translateX(0);
+      z-index: 9999;
     }
 
+    /* Sidebar tertutup */
+    #sidebar.closed {
+        transform: translateX(-260px);
+}
+
+      .container {
+      overflow: scroll;
+    }
+
+
       /* ini bagian untuk responsive sidebar */
-      /* Mobile: sembunyikan sidebar */
+    /* Tombol toggle hanya muncul di HP */
+    #toggleSidebar {
+        position: fixed;
+        display: none;
+        background: 1e3a8a;
+        border: none;
+        color: blue;
+        font-size: 28px;
+        margin: 10px;
+        cursor: pointer;
+        z-index: 99999; /* paling atas */
+}
+
+
+/* HP (mobile) */
 @media (max-width: 768px) {
-  #sidebar {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    height: 100%;
-    transition: left 0.3s;
-    z-index: 999;
-  }
-  #sidebar.open {
-    left: 0;
-  }
 
-  /* Tombol toggle muncul di mobile */
-  #mobileToggle {
-    display: block;
-    background-color: #1e3a8a;
-    color: white;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
+    #toggleSidebar {
+        display: block;
+    }
+
+    /* Sidebar default disembunyikan */
+    #sidebar {
+        position: fixed;
+        height: 100vh;
+        transform: translateX(-260px);
+        z-index: 2000;
+    }
+
+    /* Ketika dibuka */
+    #sidebar.open {
+        transform: translateX(0);
+    }
 }
-
-/* Desktop: tombol toggle disembunyikan */
-@media (min-width: 769px) {
-  #mobileToggle {
-    display: none;
-  }
-}
-
-
+      
 
     /* tutup responsive sidebar */
+
+
     #sidebar .nav-link {
       color: #cbd5e1;
       padding: 15px 20px;
@@ -91,6 +112,7 @@ use App\Controllers\Staff;
       flex-grow: 1;
       overflow-y: auto;
       padding: 20px;
+  
       background-color: #f1f5f9;
     }
     #navSearch {
@@ -108,19 +130,15 @@ use App\Controllers\Staff;
       text-align: center;
       opacity: 0.5;
     }
+    
   </style>
 </head>
 <body>
-  <div id="mobileToggle">☰ Menu</div>
-
   <div class="wrapper">
-    <nav id="sidebar">
+    <button class="nav-toggle" id="toggleSidebar">
+    ☰ 
+  </button>
+    <nav id="sidebar" class="">
       <header>Manajemen Keuangan UMKM  </header>
-      <input type="search" id="navSearch" placeholder="Cari menu..." />
-      <!-- <a class="nav-link active" data-page="kelola_menu.html">Kelola Menu</a>
-      <a class="nav-link" data-page="laporan_keuangan.html">Laporan Keuangan</a> -->
-      <a class="nav-link" href="/staff/input_pembelian">Input Pembelian</a>
-      <a class="nav-link" href="/staff/input_penjualan" >Input Penjualan</a>
-      <a class="nav-link text-danger" id="logoutBtn">Logout</a>
-       <footer>Logged in as <span id="userInfo"></span></footer>
-    </nav>
+
+      <ul class="nav-menu" id="nav-menu"></ul>

@@ -1,6 +1,14 @@
+   
+      <input type="search" id="navSearch" placeholder="Cari menu..." />
+      <!-- <a class="nav-link active" data-page="kelola_menu.html">Kelola Menu</a>
+      <a class="nav-link" data-page="laporan_keuangan.html">Laporan Keuangan</a> -->
+      <a class="nav-link" href="/staff/input_pembelian">Input Pembelian</a>
+      <a class="nav-link" href="/staff/input_penjualan" >Input Penjualan</a>
+      <a class="nav-link text-danger" id="logoutBtn">Logout</a>
+       <footer>Logged in as <span id="userInfo"></span></footer>
+    </nav>
 
-
-     <div class="container mt-4">
+     <div class="container mt-4"><br>
        <h2 class="mb-4">Input Transaksi Penjualan</h2>
 
        <form id="formPenjualan" class="mb-4 needs-validation" novalidate>
@@ -64,6 +72,32 @@
              <th>Metode Bayar</th>
              <th>Total Harga</th>
              <th>Aksi</th>
+           </tr>
+           <tr class="table-primary">
+            <td>1</td>
+            <td>11-21-2025</td>
+            <td>Yoga</td>
+            <td>Roti</td>
+            <td>2</td>
+            <td>Cash</td>
+            <td>Rp10.000</td>
+            <td>
+              <button class="btn btn-sm btn-warning me-1">Edit</button> |
+              <button class="btn btn-sm btn-danger">Hapus</button>
+            </td>
+           </tr>
+           <tr class="table-primary">
+            <td>1</td>
+            <td>11-21-2025</td>
+            <td>Yoga</td>
+            <td>Roti</td>
+            <td>2</td>
+            <td>Cash</td>
+            <td>Rp10.000</td>
+            <td>
+              <button class="btn btn-sm btn-warning me-1">Edit</button> |
+              <button class="btn btn-sm btn-danger">Hapus</button>
+            </td>
            </tr>
            <tr class="table-primary">
             <td>1</td>
