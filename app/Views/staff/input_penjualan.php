@@ -1,10 +1,11 @@
    
-      <input type="search" id="navSearch" placeholder="Cari menu..." />
-      <!-- <a class="nav-link active" data-page="kelola_menu.html">Kelola Menu</a>
-      <a class="nav-link" data-page="laporan_keuangan.html">Laporan Keuangan</a> -->
-      <a class="nav-link" href="/staff/input_pembelian">Input Pembelian</a>
-      <a class="nav-link" href="/staff/input_penjualan" >Input Penjualan</a>
-      <a class="nav-link text-danger" id="logoutBtn">Logout</a>
+     <a class="nav-link" href="/staff/input_pembelian">
+      <i class="bi bi-cart-plus"></i>  | Input Pembelian
+      </a>
+      <a class="nav-link" href="/staff/input_penjualan" >
+        <i class="bi bi-cash-stack"></i> | Input Penjualan
+      </a>
+      <li><a class="nav-link text-danger" id="logoutBtn"><i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i> </a></li>
        <footer>Logged in as <span id="userInfo"></span></footer>
     </nav>
 
@@ -28,7 +29,13 @@
 
            <div class="col-md-5">
              <label for="menuSelect" class="form-label">Pilih Menu</label>
-             <select id="menuSelect" class="form-select" required></select>
+             <select id="menuSelect" class="form-select" required>
+              <option value="" disabled selected>Pilih menu</option>
+              <option value="">Nuget - (stok-6)</option>
+             <option value="">Nuget - (stok-6)</option>
+             <option value="">Nuget - (stok-6)</option>
+             </select>
+           
              <div class="invalid-feedback">Pilih menu penjualan.</div>
            </div>
 
@@ -58,62 +65,65 @@
          <button type="button" class="btn btn-secondary mt-3 ms-2 d-none" id="cancelEditBtn">Batal Ubah</button>
        </form>
 
-       <h4>Riwayat Penjualan</h4>
-       <!-- Tombol Cetak Riwayat -->
-       <button class="btn btn-info mb-3" onclick="cetakRiwayat()">Cetak Riwayat</button>
-       <table class="table table-striped">
-         <thead>
-           <tr class="table-dark">
-             <th>No</th>
-             <th>Tanggal</th>
-             <th>Nama Pegawai</th>
-             <th>Menu</th>
-             <th>Jumlah</th>
-             <th>Metode Bayar</th>
-             <th>Total Harga</th>
-             <th>Aksi</th>
-           </tr>
-           <tr class="table-primary">
-            <td>1</td>
-            <td>11-21-2025</td>
-            <td>Yoga</td>
-            <td>Roti</td>
-            <td>2</td>
-            <td>Cash</td>
-            <td>Rp10.000</td>
-            <td>
-              <button class="btn btn-sm btn-warning me-1">Edit</button> |
-              <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-           </tr>
-           <tr class="table-primary">
-            <td>1</td>
-            <td>11-21-2025</td>
-            <td>Yoga</td>
-            <td>Roti</td>
-            <td>2</td>
-            <td>Cash</td>
-            <td>Rp10.000</td>
-            <td>
-              <button class="btn btn-sm btn-warning me-1">Edit</button> |
-              <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-           </tr>
-           <tr class="table-primary">
-            <td>1</td>
-            <td>11-21-2025</td>
-            <td>Yoga</td>
-            <td>Roti</td>
-            <td>2</td>
-            <td>Cash</td>
-            <td>Rp10.000</td>
-            <td>
-              <button class="btn btn-sm btn-warning me-1">Edit</button> |
-              <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-           </tr>
-         </thead>
-         <tbody id="penjualanListBody"></tbody>
-       </table>
+  
+       
+
+      <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold ">Data Penjualan</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>No</th>
+                      <th>Tanggal</th>
+                      <th>Nama Pegawai</th>
+                      <th>Menu</th>
+                      <th>Jumlah</th>
+                      <th>Metode Bayar</th>
+                      <th>Total Harga</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-primary">
+                    <tr>
+                      <td>1</td>
+                      <td>11-21-2025</td>
+                      <td>Yoga</td>
+                      <td>banana</td>
+                      <td>2</td>
+                      <td>Cash</td>
+                      <td>Rp10.000</td>
+                      <td class="text-center">
+                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button> <br>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>11-21-2025</td>
+                      <td>Yoga</td>
+                      <td>Roti</td>
+                      <td>2</td>
+                      <td>Cash</td>
+                      <td>Rp10.000</td>
+                      <td class="text-center">
+                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button> <br>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
+                      </td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
      </div>
      

@@ -2,98 +2,86 @@
       <!-- <input type="search" id="navSearch" placeholder="Cari menu..." /> -->
 
 
-     <li><a class="nav-link" href="/owner/kelola_menu">Kelola Menu</a></li> 
-    <li> <a class="nav-link" href="/owner/laporan_keuangan" >Laporan keuangan</a></li> 
-      <li><a class="nav-link text-danger" id="logoutBtn">Logout</a></li>
+     <li><a class="nav-link" href="/owner/kelola_menu"> <i class="bi bi-list-ul"></i> Kelola Menu</a></li> 
+    <li> <a class="nav-link" href="/owner/laporan_keuangan" > <i class="bi bi-graph-up"></i> Laporan keuangan</a></li> 
+      <li><a class="nav-link text-danger" id="logoutBtn"><i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i> </a></li>
 </ul>
        <footer>Logged in as <span id="userInfo"></span></footer>
 
     </nav>
 
     <div class="container mt-4"><br>
-    <h2 class="mb-10">Kelola Menu</h2>
-    <button type="button" class="btn btn-primary mb-3" id="btnAddMenu" >Tambah Menu Baru</button>
 
-    <table class="table table-bordered table-hover align-middle">
-      <thead >
-        <tr class="table-dark">
-          <th>No</th>
-          <th>Nama Menu</th>
-          <th>Harga</th>
-          <th>Stok</th>
-          <th>Kategori</th>
-          <th>Status</th>
-          <th>Aksi</th>
-        </tr>
+    
 
-        <tr class="table-primary">
-            <td>1</td>
-            <td>Rendang</td>
-            <td>Rp10.000</td>
-            <td>10</td>
-            <td>Makanan</td>
-            <td><span class="badge text-bg-success">Tersedia</span></td>
-            <td>
-                <button class="btn btn-sm btn-warning me-1">Ubah</button>
-                <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-        </tr>
-        <tr class="table-primary">
-            <td>1</td>
-            <td>Rendang</td>
-            <td>Rp10.000</td>
-            <td>10</td>
-            <td>Makanan</td>
-            <td><span class="badge text-bg-success">Tersedia</span></td>
-            <td>
-                <button class="btn btn-sm btn-warning me-1">Ubah</button>
-                <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-        </tr>
-        <tr class="table-primary">
-            <td>1</td>
-            <td>Rendang</td>
-            <td>Rp10.000</td>
-            <td>10</td>
-            <td>Makanan</td>
-            <td><span class="badge text-bg-success">Tersedia</span></td>
-            <td>
-                <button class="btn btn-sm btn-warning me-1">Ubah</button>
-                <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-        </tr>
-        <tr class="table-primary">
-            <td>1</td>
-            <td>Rendang</td>
-            <td>Rp10.000</td>
-            <td>10</td>
-            <td>Makanan</td>
-            <td><span class="badge text-bg-success">Tersedia</span></td>
-            <td>
-                <button class="btn btn-sm btn-warning me-1">Ubah</button>
-                <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-        </tr>
-        <tr class="table-primary">
-            <td>1</td>
-            <td>Rendang</td>
-            <td>Rp10.000</td>
-            <td>10</td>
-            <td>Makanan</td>
-            <td><span class="badge text-bg-success">Tersedia</span></td>
-            <td>
-                <button class="btn btn-sm btn-warning me-1">Ubah</button>
-                <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-        </tr>
-      </thead>
-      <tbody id="menuTableBody"></tbody>
-    </table>
-  </div>
+
+          <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- tombol tambah data -->
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#menuModal">
+              Tambah Menu Baru
+            </button>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold ">Data Kelola Menu</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>No</th>
+                      <th>Nama menu</th>
+                      <th>Harga</th>
+                      <th>Stok</th>
+                      <th>Kategori</th>
+                      <th>Status</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-primary">
+                    <tr>
+                      <td>1</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td><span class="badge text-bg-success">Tersedia</span></td>
+                      <td class="text-center">
+                         <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
+                        <button type="button" class="btn btn-primary"><i class="bi bi-eye text-white"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>2011/07/25</td>
+                      <td><span class="badge text-bg-success">Tersedia</span></td>
+                      <td class="text-center">
+                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
+                        <button type="button" class="btn btn-primary"><i class="bi bi-eye text-white"></i></button>
+                      </td>
+                  
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
 
 
 
-  <!-- Modal Tambah/Ubah Menu -->
+
+         <!-- Modal Tambah/Ubah Menu -->
   <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <form class="modal-content needs-validation" novalidate id="menuForm">
@@ -135,4 +123,14 @@
       </form>
     </div>
   </div>
+
+  </div>
+
+
+
+ 
+
+
+
+  
 
