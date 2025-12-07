@@ -8,9 +8,22 @@ use App\Controllers\Staff;
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>E-UMKM</title>
-  <!-- fav icon -->
- <link rel="icon" type="image/png" href="https://icons.getbootstrap.com/icons/cup-hot/"/>
-  <!-- Bootstrap CSS -->
+ <link rel="icon" type="image/png" href="<?= base_url('assets/img/favicon.ico') ?>">
+
+  <!-- icon edit dan delete -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+ <!-- bootstrap v5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- table bootsrap admin -->
+   <!-- Custom styles for this template -->
+<link rel="stylesheet" href="<?= base_url('assets/css/sb-admin-2.min.css') ?>">
+
+  <!-- Custom styles for this page -->
+<link rel="stylesheet" href="<?= base_url('assets/datatables/dataTables.bootstrap4.min.css') ?>">
+  <!-- tutup table bootstrap admin -->
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>

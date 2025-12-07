@@ -1,10 +1,12 @@
 
-      <!-- <input type="search" id="navSearch" placeholder="Cari menu..." /> -->
-      <!-- <a class="nav-link active" data-page="kelola_menu.html">Kelola Menu</a>
-      <a class="nav-link" data-page="laporan_keuangan.html">Laporan Keuangan</a> -->
-      <a class="nav-link" href="/staff/input_pembelian">Input Pembelian</a>
-      <a class="nav-link" href="/staff/input_penjualan" >Input Penjualan</a>
-      <a class="nav-link text-danger" id="logoutBtn">Logout</a>
+     
+      <a class="nav-link" href="/staff/input_pembelian">
+      <i class="bi bi-cart-plus"></i>  | Input Pembelian
+      </a>
+      <a class="nav-link" href="/staff/input_penjualan" >
+        <i class="bi bi-cash-stack"></i> | Input Penjualan
+      </a>
+      <li><a class="nav-link text-danger" id="logoutBtn"><i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i> </a></li>
        <footer>Logged in as <span id="userInfo"></span></footer>
     </nav>
 
@@ -68,41 +70,72 @@
        <button type="button" class="btn btn-secondary mt-3 ms-2 d-none" id="cancelEditBtn">Batal Ubah</button>
      </form>
 
-     <h4>Riwayat Pembelian</h4>
-     <table class="table table-striped" >
-       <thead>
-         <tr class="table-dark">
-          <th>No</th>
-           <th>Tanggal</th>
-           <th>Nama Bahan</th>
-           <th>Jumlah</th>
-           <th>Harga Unit</th>
-           <th>Total Pengeluaran</th>
-           <th>Supplier</th>
-           <th>Kasir Pencatat</th>
-           <th>Status</th>
-           <th>Aksi</th>
-         </tr>
-          <tr class="table-primary">
-            <td>1</td>
-            <td>11-21-2025</td>
-            <td>Terigu</td>
-            <td>10 kg</td>
-            <td>Rp 8.000</td>
-            <td>Rp 180.000</td>
-            <td>Intan Grosir</td>
-            <td>Yoga</td>
-            <td><span class="badge text-bg-success">Active</span></td>
-            <td>
-              <button class="btn btn-sm btn-warning me-1">Edit</button> |
-              <button class="btn btn-sm btn-danger">Hapus</button>
-            </td>
-          </tr>
-       </thead>
-       <tbody id="pembelianListBody">
-         <!-- Data pembelian muncul di sini -->
-       </tbody>
-     </table>
+
+
+
+      <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold ">Data Pembelian Barang</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>No</th>
+                      <th>Tanggal</th>
+                      <th>Nama Bahan</th>
+                      <th>Jumlah</th>
+                      <th>Harga Unit</th>
+                      <th>Total Pengeluaran</th>
+                      <th>Supplier</th>
+                      <th>Kasir Pencatat</th>
+                      <th>Status</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-primary">
+                    <tr>
+                      <td>1</td>
+                      <td>11-21-2025</td>
+                      <td>gula</td>
+                      <td>10 kg</td>
+                      <td>Rp 8.000</td>
+                      <td>Rp 180.000</td>
+                      <td>Intan Grosir</td>
+                      <td>Yoga</td>
+                      <td><span class="badge text-bg-success">Active</span></td>
+                      <td class="text-center">
+                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button> <br>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>11-21-2025</td>
+                      <td>Terigu</td>
+                      <td>10 kg</td>
+                      <td>Rp 8.000</td>
+                      <td>Rp 180.000</td>
+                      <td>Intan Grosir</td>
+                      <td>Yoga</td>
+                      <td><span class="badge text-bg-success">Active</span></td>
+                      <td class="text-center">
+                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button> <br>
+                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
+                      </td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
    </div>
 
     
