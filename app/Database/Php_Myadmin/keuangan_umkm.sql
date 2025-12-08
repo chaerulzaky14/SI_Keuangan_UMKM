@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 06, 2025 at 03:39 PM
+-- Generation Time: Dec 08, 2025 at 01:58 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -79,6 +79,13 @@ CREATE TABLE `owner` (
   `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `owner`
+--
+
+INSERT INTO `owner` (`id_owner`, `nama`, `username`, `password`) VALUES
+(2, 'Owner Utama', 'owner', '12345');
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +98,14 @@ CREATE TABLE `pegawai` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `nama`, `username`, `password`) VALUES
+(1, 'Pegawai Satu', 'staff', '12345'),
+(2, 'Pegawai Dua', 'pegawai2', 'password2');
 
 -- --------------------------------------------------------
 
@@ -222,13 +237,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `id_owner` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_owner` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pegawai` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pembelian_stok`
