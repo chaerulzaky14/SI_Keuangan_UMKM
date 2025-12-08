@@ -6,6 +6,7 @@
   <title>Login Sistem</title>
   <link rel="icon" type="image/png" href="<?= base_url('assets/img/favicon.ico') ?>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
   <style>
     body, html {
       background-color: rgb(69, 143, 196);
@@ -54,17 +55,27 @@
 
   <div class="login-card shadow">
     <h3 class="mb-4 text-center">Login Sistem</h3>
-    <form id="loginForm" autocomplete="off">
+
+    <?php if(session()->getFlashdata('error')): ?>
+      <div class="alert alert-danger">
+        <?= session()->getFlashdata('error') ?>
+      </div>
+    <?php endif; ?>
+
+    <form action="<?= base_url('/login') ?>" method="POST">
+
       <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" id="username" class="form-control" placeholder="Masukkan username" required />
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required />
       </div>
+
       <div class="mb-4">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Masukkan password" required />
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required />
       </div>
+
       <button type="submit" class="btn btn-primary w-100">Login</button>
-      <div id="errorMessage" class="mt-3 text-center d-none">Username atau password salah.</div>
+
     </form>
   </div>
 

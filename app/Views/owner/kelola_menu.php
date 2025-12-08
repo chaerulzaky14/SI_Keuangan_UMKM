@@ -2,9 +2,14 @@
       <!-- <input type="search" id="navSearch" placeholder="Cari menu..." /> -->
 
 
-     <li><a class="nav-link" href="/owner/kelola_menu"> <i class="bi bi-list-ul"></i> Kelola Menu</a></li> 
-    <li> <a class="nav-link" href="/owner/laporan_keuangan" > <i class="bi bi-graph-up"></i> Laporan keuangan</a></li> 
-      <li><a class="nav-link text-danger" id="logoutBtn"><i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i> </a></li>
+      <a class="nav-link" href="<?= base_url('owner/kelola_menu'); ?>">
+      <i class="bi bi-list-ul"></i>  | Kelola Menu
+      <a class="nav-link" href="<?= base_url('/owner/laporan_keuangan'); ?>">
+      <i class="bi bi-graph-up"></i>  | Laporan Keuangan
+          <a class="nav-link text-danger" id="logoutBtn" href="<?= base_url('logout'); ?>">
+              <i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i>
+          </a>
+      </li>
 </ul>
        <footer>Logged in as <span id="userInfo"></span></footer>
 

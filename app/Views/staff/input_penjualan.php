@@ -1,12 +1,15 @@
    
-     <a class="nav-link" href="/staff/input_pembelian">
+      <a class="nav-link" href="<?= base_url('staff/input_pembelian'); ?>">
       <i class="bi bi-cart-plus"></i>  | Input Pembelian
+      <a class="nav-link" href="<?= base_url('staff/input_penjualan'); ?>">
+      <i class="bi bi-cash-stack"></i>  | Input Penjualan
       </a>
-      <a class="nav-link" href="/staff/input_penjualan" >
-        <i class="bi bi-cash-stack"></i> | Input Penjualan
-      </a>
-      <li><a class="nav-link text-danger" id="logoutBtn"><i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i> </a></li>
-       <footer>Logged in as <span id="userInfo"></span></footer>
+      <li>
+          <a class="nav-link text-danger" id="logoutBtn" href="<?= base_url('logout'); ?>">
+              <i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i>
+          </a>
+      </li>
+      <footer>Logged in as <span id="userInfo"></span></footer>
     </nav>
 
      <div class="container mt-4"><br>
