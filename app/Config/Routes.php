@@ -7,13 +7,17 @@ use CodeIgniter\Router\RouteCollection;
  */
 // index route
 $routes->get('/', 'Auth::login');
+$routes->post('/login', 'Auth::prosesLogin');
+$routes->get('/logout', 'Auth::logout');
+
 // akses untuk staff
-$routes->get('/staff/input_pembelian', 'Staff::input_pembelian');
-$routes->get('/staff/input_penjualan', 'Staff::input_penjualan');
+$routes->group('staff', ['filter' => 'staff'], function($routes){
+    $routes->get('input_pembelian', 'Staff::input_pembelian');
+    $routes->get('input_penjualan', 'Staff::input_penjualan');
+});
 
 // akses untuk owner
-$routes->get('/owner/kelola_menu', 'Owner::kelola_menu');
-$routes->get('/owner/laporan_keuangan', 'Owner::laporan_keuangan');
-
-//akses untuk auth
-// $routes->get('/login', 'Auth::login');
+$routes->group('owner', ['filter' => 'owner'], function($routes){
+    $routes->get('kelola_menu', 'Owner::kelola_menu');
+    $routes->get('laporan_keuangan', 'Owner::laporan_keuangan');
+});
