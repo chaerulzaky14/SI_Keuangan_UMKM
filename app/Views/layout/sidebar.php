@@ -180,7 +180,7 @@ use App\Controllers\Staff;
           <i class="bi bi-cash-stack"></i> | Input Penjualan
         </a>
 
-        <a class="nav-link" href="<?= base_url('transaksi'); ?>">
+        <a class="nav-link" href="<?= base_url('staff/transaksi'); ?>">
           <i class="bi bi-receipt"></i> | Transaksi
         </a>
 

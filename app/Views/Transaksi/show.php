@@ -8,7 +8,7 @@
   <?php endif; ?>
 
   <div class="mb-3 d-print-none">
-    <a href="<?= base_url('transaksi') ?>" class="btn btn-light">
+    <a href="<?= base_url('staff/transaksi') ?>" class="btn btn-light">
       Kembali
     </a>
     <button class="btn btn-warning" onclick="window.print()">

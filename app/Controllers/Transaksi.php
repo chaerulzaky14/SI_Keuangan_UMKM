@@ -130,7 +130,7 @@ class Transaksi extends BaseController
         }
 
         return redirect()
-            ->to(site_url('transaksi/' . $idTransaksi))
+            ->to(site_url('staff/transaksi/' . $idTransaksi))
             ->with('success', 'Transaksi berhasil disimpan.');
     }
 
@@ -175,7 +175,7 @@ class Transaksi extends BaseController
         // Optional: kalau mau kembalikan stok, bisa hitung dari detail sebelum delete
 
         return redirect()
-            ->to(site_url('transaksi'))
+            ->to(site_url('staff/transaksi'))
             ->with('success', 'Transaksi berhasil dibatalkan / dihapus.');
     }
 }

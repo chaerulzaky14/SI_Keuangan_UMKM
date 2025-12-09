@@ -11,10 +11,10 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
                 <h6 class="m-0 font-weight-bold">Form Transaksi</h6>
-                <a href="<?= base_url('transaksi') ?>" class="btn btn-light btn-sm">Kembali</a>
+                <a href="<?= base_url('staff/transaksi') ?>" class="btn btn-light btn-sm">Kembali</a>
             </div>
             <div class="card-body">
-                <form action="<?= base_url('transaksi/store') ?>" method="post">
+                <form action="<?= base_url('staff/transaksi/store') ?>" method="post">
 
                     <div class="row mb-3">
                         <div class="col-md-4">

@@ -14,7 +14,7 @@
   <?php endif; ?>
 
   <div class="mb-3">
-    <a href="<?= base_url('transaksi/create') ?>" class="btn btn-primary">
+    <a href="<?= base_url('staff/transaksi/create') ?>" class="btn btn-primary">
       <i class="bi bi-plus-circle"></i> Input Transaksi Baru
     </a>
   </div>
@@ -46,15 +46,15 @@
                   <td><?= esc($row['metode_pembayaran']) ?></td>
                   <td>Rp<?= number_format($row['total_harga'], 2, ',', '.') ?></td>
                   <td class="text-center">
-                    <a href="<?= base_url('transaksi/' . $row['id_transaksi']) ?>" class="btn btn-primary btn-sm">
+                    <a href="<?= base_url('staff/transaksi/' . $row['id_transaksi']) ?>" class="btn btn-primary btn-sm">
                       <i class="bi bi-eye text-white"></i>
                     </a>
-                    <a href="<?= base_url('transaksi/delete/' . $row['id_transaksi']) ?>"
+                    <a href="<?= base_url('staff/transaksi/delete/' . $row['id_transaksi']) ?>"
                        class="btn btn-danger btn-sm"
                        onclick="return confirm('Yakin ingin membatalkan / menghapus transaksi ini?');">
                       <i class="bi bi-trash text-white"></i>
                     </a>
-                    <a href="<?= base_url('transaksi/' . $row['id_transaksi']) ?>?print=1"
+                    <a href="<?= base_url('staff/transaksi/' . $row['id_transaksi']) ?>?print=1"
                        class="btn btn-warning btn-sm" onclick="window.open(this.href); return false;">
                       <i class="bi bi-printer"></i>
                     </a>
