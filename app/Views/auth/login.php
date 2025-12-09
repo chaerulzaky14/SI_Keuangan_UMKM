@@ -56,6 +56,22 @@
   <div class="login-card shadow">
     <h3 class="mb-4 text-center">Login Sistem</h3>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php if (session()->getFlashdata('success')) : ?>
+    <script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Login Berhasil!',
+        text: '<?= session()->getFlashdata('success') ?>',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    </script>
+    <?php endif; ?>
+
+    
+
     <?php if(session()->getFlashdata('error')): ?>
       <div class="alert alert-danger">
         <?= session()->getFlashdata('error') ?>

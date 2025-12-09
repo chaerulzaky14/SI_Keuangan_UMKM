@@ -200,9 +200,11 @@ use App\Controllers\Staff;
       </a>
 
       <li>
-        <a class="nav-link text-danger" id="logoutBtn" href="<?= base_url('logout'); ?>">
+      <a class="nav-link text-danger" id="logoutBtn" 
+        data-bs-toggle="modal" 
+        data-bs-target="#logoutModal">
           <i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i>
-        </a>
+      </a>
       </li>
 
       <footer>Logged in as <span id="userInfo"></span></footer>

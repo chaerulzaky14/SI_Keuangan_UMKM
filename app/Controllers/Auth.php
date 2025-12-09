@@ -31,7 +31,7 @@ class Auth extends BaseController
                     'nama'      => $owner['nama']
                 ]);
 
-                return redirect()->to('/owner/kelola_menu');
+                return redirect()->to('/owner/kelola_menu')->with('success', 'Selamat datang Owner!');
             } else {
                 return redirect()->to('/')->with('error', 'Password salah!');
             }
@@ -48,7 +48,7 @@ class Auth extends BaseController
                     'nama'      => $pegawai['nama']
                 ]);
 
-                return redirect()->to('/staff/input_pembelian');
+                return redirect()->to('/staff/input_pembelian')->with('success', 'Selamat datang Staff!');
             } else {
                 return redirect()->to('/')->with('error', 'Password salah!');
             }
@@ -61,6 +61,6 @@ class Auth extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/');
+        return redirect()->to('/auth/login')->with('success', 'Berhasil logout!');
     }
 }
