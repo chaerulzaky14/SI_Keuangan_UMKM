@@ -31,5 +31,27 @@
 
   <!-- Page level custom scripts -->
   <script src="<?=  base_url('assets/js/demo/datatables-demo.js') ?>"></script>
+
+  <!-- Modal Logout -->
+  <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+
+        <div class="text-danger fs-1 mb-3">
+          <i class="bi bi-x-circle-fill"></i>
+        </div>
+
+        <h4 class="mb-2">Logout?</h4>
+        <p class="text-muted mb-4">Apakah kamu yakin ingin keluar?</p>
+
+        <div class="d-flex justify-content-center gap-3">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <a href="<?= base_url(''); ?>" class="btn btn-danger">Ya, Keluar</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   </body>
 </html>

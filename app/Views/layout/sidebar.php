@@ -161,49 +161,51 @@ use App\Controllers\Staff;
     <button class="nav-toggle" id="toggleSidebar">
       ☰
     </button>
-    <nav id="sidebar" class="">
-      <header>Manajemen Keuangan UMKM </header>
+<nav id="sidebar" class="">
+    <header>Manajemen Keuangan UMKM </header>
 
-      <ul class="nav-menu" id="nav-menu"></ul>
+    <ul class="nav-menu" id="nav-menu"></ul>
 
-      <input type="search" id="navSearch" placeholder="Cari menu..." />
+    <input type="search" id="navSearch" placeholder="Cari menu..." />
 
-      <?php $role = $_SESSION['role'] ?? ''; ?>
+    <?php $role = $_SESSION['role'] ?? ''; ?>
 
-      <?php if ($role === 'staff'): ?>
+    <?php if ($role === 'staff'): ?>
 
         <a class="nav-link" href="<?= base_url('staff/input_pembelian'); ?>">
-          <i class="bi bi-cart-plus"></i> | Input Pembelian
+            <i class="bi bi-cart-plus"></i> | Input Pembelian
         </a>
 
         <a class="nav-link" href="<?= base_url('staff/input_penjualan'); ?>">
-          <i class="bi bi-cash-stack"></i> | Input Penjualan
+            <i class="bi bi-cash-stack"></i> | Input Penjualan
         </a>
 
         <a class="nav-link" href="<?= base_url('staff/transaksi'); ?>">
-          <i class="bi bi-receipt"></i> | Transaksi
+            <i class="bi bi-receipt"></i> | Transaksi
         </a>
 
-      <?php elseif ($role === 'owner'): ?>
+    <?php elseif ($role === 'owner'): ?>
 
         <a class="nav-link" href="<?= base_url('owner/kelola_menu'); ?>">
-          <i class="bi bi-list-ul"></i> | Kelola Menu
+            <i class="bi bi-list-ul"></i> | Kelola Menu
         </a>
 
         <a class="nav-link" href="<?= base_url('owner/laporan_keuangan'); ?>">
-          <i class="bi bi-graph-up"></i> | Laporan Keuangan
+            <i class="bi bi-graph-up"></i> | Laporan Keuangan
         </a>
 
-      <?php endif; ?>
+    <?php endif; ?>
 
 
-      </a>
-
-      <li>
-        <a class="nav-link text-danger" id="logoutBtn" href="<?= base_url('logout'); ?>">
-          <i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i>
+    <li>
+        <a class="nav-link text-danger" id="logoutBtn" 
+            data-bs-toggle="modal" 
+            data-bs-target="#logoutModal">
+            <i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i>
         </a>
-      </li>
+    </li>
 
-      <footer>Logged in as <span id="userInfo"></span></footer>
-    </nav>
+    <footer>
+        Logged in as <span id="userRole"><?= $role ?></span>
+    </footer>
+</nav>
