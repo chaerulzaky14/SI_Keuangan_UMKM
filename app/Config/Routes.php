@@ -21,3 +21,9 @@ $routes->group('owner', ['filter' => 'owner'], function($routes){
     $routes->get('kelola_menu', 'Owner::kelola_menu');
     $routes->get('laporan_keuangan', 'Owner::laporan_keuangan');
 });
+
+$routes->get('transaksi', 'Transaksi::index');
+$routes->get('transaksi/create', 'Transaksi::create');
+$routes->post('transaksi/store', 'Transaksi::store');
+$routes->get('transaksi/(:num)', 'Transaksi::show/$1');
+$routes->get('transaksi/delete/(:num)', 'Transaksi::delete/$1');

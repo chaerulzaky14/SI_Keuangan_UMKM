@@ -155,3 +155,23 @@ use App\Controllers\Staff;
       <header>Manajemen Keuangan UMKM  </header>
 
       <ul class="nav-menu" id="nav-menu"></ul>
+
+
+     
+      <a class="nav-link" href="<?= base_url('staff/input_pembelian'); ?>">
+      <i class="bi bi-cart-plus"></i>  | Input Pembelian
+      <a class="nav-link" href="<?= base_url('staff/input_penjualan'); ?>">
+      <i class="bi bi-cash-stack"></i>  | Input Penjualan
+      <a class="nav-link" href="<?= base_url('transaksi'); ?>">
+      <i class="bi bi-receipt"></i>  | Transaksi
+
+      </a>
+      
+    <li>
+        <a class="nav-link text-danger" id="logoutBtn" href="<?= base_url('logout'); ?>">
+            <i class="bi bi-box-arrow-in-left btn btn-danger">| Logout</i>
+        </a>
+    </li>
+      
+       <footer>Logged in as <span id="userInfo"></span></footer>
+    </nav>
