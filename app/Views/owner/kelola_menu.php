@@ -9,8 +9,8 @@
         <div class="container-fluid">
 
           <!-- tombol tambah data -->
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#menuModal">
-              Tambah Menu Baru
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addModal">
+               Tambah Menu
             </button>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -21,50 +21,52 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead class="table-dark">
-                    <tr>
-                      <th>No</th>
-                      <th>Nama menu</th>
-                      <th>Harga</th>
-                      <th>Stok</th>
-                      <th>Kategori</th>
-                      <th>Status</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody class="table-primary">
-                    <tr>
-                      <td>1</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td><span class="badge text-bg-success">Tersedia</span></td>
-                      <td class="text-center">
-                         <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
-                        <button type="button" class="btn btn-primary"><i class="bi bi-eye text-white"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td><span class="badge text-bg-success">Tersedia</span></td>
-                      <td class="text-center">
-                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
-                        <button type="button" class="btn btn-primary"><i class="bi bi-eye text-white"></i></button>
-                      </td>
-                  
+                            <tr>
+                              <th>No</th>
+                              <th>Nama menu</th>
+                              <th>Harga</th>
+                              <th>Stok</th>
+                              <th>Kategori</th>
+                              <th>Status</th>
+                              <th>Aksi</th>
+                            </tr>
+                          </thead>
+                          <tbody class="table-primary">
+                            <?php $no=1; foreach($menu as $m): ?>
+                      <tr>
+                        <td><?= $no++ ?></td>
+                        <td><?= $m['nama_menu'] ?></td>
+                        <td><?= $m['harga'] ?></td>
+                        <td><?= $m['stok'] ?></td>
+                        <td><?= $m['kategori'] ?></td>
+                        <td>
+                          <?php if($m['stok'] > 0): ?>
+                              <span class="badge bg-success">Tersedia</span>
+                          <?php else: ?>
+                              <span class="badge bg-danger">Habis</span>
+                          <?php endif; ?>
+                        </td>
+                        <td>
+                            <button class="btn btn-success btnEdit"
+                                data-id="<?= $m['id_menu'] ?>"
+                                data-nama="<?= $m['nama_menu'] ?>"
+                                data-harga="<?= $m['harga'] ?>"
+                                data-stok="<?= $m['stok'] ?>"
+                                data-kategori="<?= $m['kategori'] ?>"
+                            ><i class="bi bi-pencil-square text-white"></i></button>
+
+                            <button class="btn btn-danger btnDelete"
+                                data-id="<?= $m['id_menu'] ?>"
+                            ><i class="bi bi-trash text-white"></i></button>
+                        </td>
+                      </tr>
+                    <?php endforeach ?>
                   
                   </tbody>
                 </table>
               </div>
             </div>
-          </div>
-
+            </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -72,75 +74,205 @@
 
 
          <!-- Modal Tambah/Ubah Menu -->
-  <div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content needs-validation" novalidate id="menuForm">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Tambah Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+                <form action="kelola_menu/save" method="post">
+
+              <div class="modal-header">
+                <h5 class="modal-title">Tambah Menu</h5>
+              </div>
+
+              <div cl ass="modal-body">
+                
+                <div class="mb-3">
+                  <label>Nama Menu</label>
+                  <input type="text" name="nama_menu" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label>Harga</label>
+                  <input type="number" name="harga" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label>Stok</label>
+                  <input type="number" name="stok" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label>Kategori</label>
+                    <select id="menuCategory" name="kategori" class="form-select" required>
+                    <option value="" disabled selected>Pilih kategori</option>
+                    <option value="makanan">Makanan</option>
+                    <option value="minuman">Minuman</option>
+                  </select>
+                </div>
+
+          
+
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Simpan</button>
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button>        
+                  </div>
+
+                    </form>
+
+              </div>
+            </div>
         </div>
+    </div>
+
+    
+
+  
+
+
+
+
+
+
+
+
+<div class="modal fade" id="editModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form id="formEdit" action="" method="post">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Menu</h5>
+        </div>
+
         <div class="modal-body">
-          <input type="hidden" id="menuId"/>
+
+          <input type="hidden" id="edit_id" name="id_menu">
+
           <div class="mb-3">
-            <label class="form-label" for="menuName">Nama Menu</label>
-            <input type="text" id="menuName" class="form-control" required/>
-            <div class="invalid-feedback">Nama menu wajib diisi</div>
+            <label>Nama Menu</label>
+            <input type="text" id="edit_nama" name="nama_menu" class="form-control">
           </div>
+
           <div class="mb-3">
-            <label class="form-label" for="menuPrice">Harga</label>
-            <input type="number" id="menuPrice" class="form-control" required min="1"/>
-            <div class="invalid-feedback">Masukkan harga valid</div>
+            <label>Harga</label>
+            <input type="number" id="edit_harga" name="harga" class="form-control">
           </div>
+
           <div class="mb-3">
-            <label class="form-label" for="menuStock">Stok</label>
-            <input type="number" id="menuStock" class="form-control" required min="0"/>
-            <div class="invalid-feedback">Masukkan stok valid (0 ke atas)</div>
+            <label>Stok</label>
+            <input type="number" id="edit_stok" name="stok" class="form-control">
           </div>
+
           <div class="mb-3">
-            <label class="form-label" for="menuCategory">Kategori</label>
-            <select id="menuCategory" class="form-select" required>
+            <label>Kategori</label>
+             <select id="edit_kategori" name="kategori" class="form-select" required>
               <option value="" disabled selected>Pilih kategori</option>
               <option value="makanan">Makanan</option>
               <option value="minuman">Minuman</option>
             </select>
-            <div class="invalid-feedback">Pilih kategori menu</div>
           </div>
+
         </div>
+
         <div class="modal-footer">
-          <button class="btn btn-primary" type="submit">Simpan</button>
-          <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button>
+          <button class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
         </div>
+
       </form>
+
     </div>
   </div>
+</div>
+   
 
-  </div>
+
+
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <?php if (session()->getFlashdata('success')) : ?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
     <script>
+
+      
+$(document).ready(function() {
+
+    // ================= EDIT ==================
+    $('.btnEdit').on('click', function() {
+
+        $('#edit_id').val($(this).data('id'));
+        $('#edit_nama').val($(this).data('nama'));
+        $('#edit_harga').val($(this).data('harga'));
+        $('#edit_stok').val($(this).data('stok'));
+        $('#edit_kategori').val($(this).data('kategori'));
+
+        
+        $('#formEdit').attr('action', '/owner/update/' + $(this).data('id'));
+       let modal = new bootstrap.Modal(document.getElementById('editModal'));
+      modal.show();
+      
+
+    });
+
+
+    // ================= DELETE ==================
+    $('.btnDelete').on('click', function() {
+
+        let id = $(this).data('id');
+
+        Swal.fire({
+            title: "Hapus Menu?",
+            text: "Data tidak bisa dikembalikan!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Ya, hapus!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                $.ajax({
+                    url: "/owner/delete/" + id,
+                    type: "GET",
+                    success: function() {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Berhasil!",
+                            text: "Menu telah dihapus",
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            location.reload();
+                        });
+                    }
+                });
+
+            }
+        });
+
+    });
+
+});
+
+</script>
+
+
+<?php if (session()->getFlashdata('success')) : ?>
+<script>
     Swal.fire({
         icon: 'success',
-        title: 'Login Berhasil!',
-        text: "<?= session()->getFlashdata('success') ?>",
-        timer: 1500,
-        showConfirmButton: false
+        title: 'Berhasil!',
+        text: '<?= session()->getFlashdata('success'); ?>'
     });
-    </script>
-    <?php endif; ?>
-
-    <?php if (session()->getFlashdata('error')) : ?>
-    <script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Login Gagal!',
-        text: "<?= session()->getFlashdata('error') ?>",
-    });
-    </script>
-    <?php endif; ?>
-
-  
+</script>
+<?php endif; ?>
 
 
 
