@@ -16,6 +16,6 @@ class MenuModel extends Model
         'kategori',
         'harga',
         'stok',
-        'id_owner',
+        'id_owner'
     ];
 }

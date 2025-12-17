@@ -24,6 +24,15 @@ $routes->group('staff', ['filter' => 'staff'], function ($routes) {
 
 // akses untuk owner
 $routes->group('owner', ['filter' => 'owner'], function ($routes) {
-    $routes->get('kelola_menu', 'Owner::kelola_menu');
+    
+    // Data menu
+    $routes->get('kelola_menu', 'Owner::menu');
+    // crud menu
+    $routes->post('kelola_menu/save', 'Owner::save');
+    $routes->post('update/(:any)', 'Owner::update/$1');
+    $routes->get('delete/(:any)', 'Owner::delete/$1');
+
+
+    // laporan keungan owner
     $routes->get('laporan_keuangan', 'Owner::laporan_keuangan');
 });

@@ -52,10 +52,9 @@
                       <td><span class="badge text-bg-success">aktif</span></td>
                       <td>Aep samsudin</td>
                       <td class="text-center">
-                        <button type="button" class="btn btn-primary"><i class="bi bi-eye text-white"></i></button>
+                        
+                               <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button>
                         <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
-                        <button type="button" class="btn btn-warning"><i class="bi bi-printer"></i></button>
-
                       </td>
                     </tr>
                     <tr>
@@ -68,9 +67,8 @@
                       <td><span class="badge text-bg-success">aktif</span></td>
                       <td>Aep samsudin</td>
                       <td class="text-center">
-                        <button type="button" class="btn btn-primary"><i class="bi bi-eye text-white"></i></button>
+                               <button type="button" class="btn btn-success"><i class="bi bi-pencil-square text-white"></i></button>
                         <button type="button" class="btn btn-danger"><i class="bi bi-trash text-white"></i></button>
-                        <button type="button" class="btn btn-warning"><i class="bi bi-printer"></i></button>
 
                       </td>
                   

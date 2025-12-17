@@ -11,6 +11,10 @@ use App\Controllers\Staff;
   <title>E-UMKM</title>
   <link rel="icon" type="image/png" href="<?= base_url('assets/img/favicon.ico') ?>">
 
+<!-- sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
   <!-- icon edit dan delete -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -176,9 +180,6 @@ use App\Controllers\Staff;
             <i class="bi bi-cart-plus"></i> | Input Pembelian
         </a>
 
-        <a class="nav-link" href="<?= base_url('staff/input_penjualan'); ?>">
-            <i class="bi bi-cash-stack"></i> | Input Penjualan
-        </a>
 
         <a class="nav-link" href="<?= base_url('staff/transaksi'); ?>">
             <i class="bi bi-receipt"></i> | Transaksi
