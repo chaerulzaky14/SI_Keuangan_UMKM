@@ -44,4 +44,8 @@ $routes->group('owner', ['filter' => 'owner'], function ($routes) {
 
     // laporan keungan owner
     $routes->get('laporan_keuangan', 'Owner::laporan_keuangan');
+
+
+    $routes->get('laporan/export/pdf', 'OwnerLaporanController::exportPdf');
+    $routes->get('laporan/export/word', 'OwnerLaporanController::exportWord');
 });
