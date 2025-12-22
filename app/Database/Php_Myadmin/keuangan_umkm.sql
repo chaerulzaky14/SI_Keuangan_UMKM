@@ -33,7 +33,7 @@ CREATE TABLE `detail_transaksi` (
   `id_menu` int DEFAULT NULL,
   `jumlah` int DEFAULT NULL,
   `subtotal` decimal(15,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE `laporan` (
   `laba_bersih` decimal(15,2) DEFAULT NULL,
   `id_pegawai` int DEFAULT NULL,
   `id_owner` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `menu` (
   `harga` decimal(15,2) DEFAULT NULL,
   `stok` int DEFAULT NULL,
   `id_owner` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `owner` (
   `nama` varchar(100) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `owner`
@@ -97,7 +97,7 @@ CREATE TABLE `pegawai` (
   `nama` varchar(100) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pegawai`
@@ -120,7 +120,7 @@ CREATE TABLE `pembelian_stok` (
   `jumlah_pembelian` int DEFAULT NULL,
   `harga_total` decimal(15,2) DEFAULT NULL,
   `id_pegawai` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `pengeluaran` (
   `jumlah` decimal(15,2) DEFAULT NULL,
   `deskripsi` text,
   `id_transaksi` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,7 @@ CREATE TABLE `transaksi` (
   `metode_pembayaran` varchar(50) DEFAULT NULL,
   `total_harga` decimal(15,2) DEFAULT NULL,
   `daftar_item` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables

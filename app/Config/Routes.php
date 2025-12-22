@@ -14,6 +14,15 @@ $routes->get('/logout', 'Auth::logout');
 $routes->group('staff', ['filter' => 'staff'], function ($routes) {
     $routes->get('input_pembelian', 'Staff::input_pembelian');
     $routes->get('input_penjualan', 'Staff::input_penjualan');
+    
+    // Baris yang ditambahkan untuk fitur simpan pembelian
+    $routes->post('simpan_pembelian', 'Staff::simpan_pembelian'); 
+
+    // Baris yang ditambahkan untuk fitur hapus pembelian
+    $routes->get('hapus_pembelian/(:num)', 'Staff::hapus_pembelian/$1');
+
+    // Baris yang ditambahkan untuk fitur update/edit pembelian
+    $routes->post('update_pembelian/(:num)', 'Staff::update_pembelian/$1');
 
     $routes->get('transaksi', 'Transaksi::index');
     $routes->get('transaksi/create', 'Transaksi::create');
@@ -35,6 +44,7 @@ $routes->group('owner', ['filter' => 'owner'], function ($routes) {
 
     // laporan keungan owner
     $routes->get('laporan_keuangan', 'Owner::laporan_keuangan');
+
 
     $routes->get('laporan/export/pdf', 'OwnerLaporanController::exportPdf');
     $routes->get('laporan/export/word', 'OwnerLaporanController::exportWord');
