@@ -14,6 +14,20 @@
         <option value="bulanan" selected>Bulanan</option>
       </select>
     </div>
+    <!-- Export / Download -->
+    <div class="mb-3 d-flex gap-2 flex-wrap align-items-center">
+      <div class="small text-muted">
+        Export berdasarkan periode yang dipilih (tanggal otomatis).
+      </div>
+
+      <a id="btnExportPdf" class="btn btn-outline-danger btn-sm" href="#" target="_blank" rel="noopener">
+        Download PDF
+      </a>
+
+      <a id="btnExportWord" class="btn btn-outline-primary btn-sm" href="#" target="_blank" rel="noopener">
+        Download Word
+      </a>
+    </div>
 
     <canvas id="chartKeuangan" height="100"></canvas>
 
@@ -82,3 +96,57 @@
         </div>
         <!-- /.container-fluid -->
   </div>
+  <script>
+  const BASE_EXPORT_PDF  = "/owner/laporan/export/pdf";
+  const BASE_EXPORT_WORD = "/owner/laporan/export/word";
+
+  function formatDateYYYYMMDD(d) {
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  function getRangeByPeriode(periode) {
+    const now = new Date();
+
+    const end = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    let start = new Date(end);
+
+    if (periode === "harian") {
+      start = new Date(end);
+    } else if (periode === "mingguan") {
+      start = new Date(end);
+      start.setDate(start.getDate() - 6);
+    } else {
+      start = new Date(end.getFullYear(), end.getMonth(), 1);
+    }
+
+    return {
+      start: formatDateYYYYMMDD(start),
+      end: formatDateYYYYMMDD(end),
+    };
+  }
+
+  function updateExportLinks() {
+    const periodeEl = document.getElementById("periode");
+    const pdfEl = document.getElementById("btnExportPdf");
+    const wordEl = document.getElementById("btnExportWord");
+    if (!periodeEl || !pdfEl || !wordEl) return;
+
+    const periode = periodeEl.value || "bulanan";
+    const range = getRangeByPeriode(periode);
+
+    const qs = `?start=${encodeURIComponent(range.start)}&end=${encodeURIComponent(range.end)}`;
+    pdfEl.href = BASE_EXPORT_PDF + qs;
+    wordEl.href = BASE_EXPORT_WORD + qs;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateExportLinks();
+    const periodeEl = document.getElementById("periode");
+    if (periodeEl) {
+      periodeEl.addEventListener("change", updateExportLinks);
+    }
+  });
+</script>
