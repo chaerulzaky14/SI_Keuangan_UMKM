@@ -85,11 +85,14 @@
         </div>
     </div>
 
-    <h2 class="fw-bold mb-3">Data Pembelian Bahan Baku</h2>
-
-    <div class="kotak-tabel-scroll shadow-sm">
-        <table class="table table-sm table-bordered table-striped tabel-data">
-            <thead class="table-dark text-center">
+     <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold ">Input Data Pembelian Stok</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead class="table-dark">
                 <tr>
                     <th class="col-no">No</th>
                     <th class="col-tgl">Tanggal</th>
@@ -126,13 +129,25 @@
                         </span>
                     </td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-success btn-xs" style="padding: 2px 5px; font-size: 0.75rem;" onclick="editData('<?= $p['id_pembelian_stok'] ?>', '<?= $p['tanggal_pembelian'] ?>', '<?= $p['nama_menu'] ?>', '<?= $p['jumlah_pembelian'] ?>', '<?= $p['harga_total'] ?>', '<?= $p['supplier'] ?>', '<?= $p['status'] ?>', '<?= isset($p['kasir_pencatat']) ? $p['kasir_pencatat'] : '' ?>')">Edit</button>
-                        <a href="<?= base_url('staff/hapus_pembelian/' . $p['id_pembelian_stok']) ?>" class="btn btn-danger btn-xs" style="padding: 2px 5px; font-size: 0.75rem;" onclick="return confirm('Hapus?')">Hapus</a>
+                        <button type="button" class="btn btn-success " style="padding: 2px 5px; font-size: 0.75rem;" 
+                        onclick="editData('<?= $p['id_pembelian_stok'] ?>', '<?= $p['tanggal_pembelian'] ?>', '<?= $p['nama_menu'] ?>',
+                        '<?= $p['jumlah_pembelian'] ?>', '<?= $p['harga_total'] ?>', '<?= $p['supplier'] ?>', '<?= $p['status'] ?>', 
+                        '<?= isset($p['kasir_pencatat']) ? $p['kasir_pencatat'] : '' ?>')"><i class="bi bi-pencil-square text-white"></i>
+                        </button>
+
+                    <button type="button"class="btn btn-danger"  style="padding: 2px 5px; font-size: 0.75rem;" 
+                    onclick="hapusData('<?= $p['id_pembelian_stok'] ?>')"><i class="bi bi-trash text-white"></i>
+                    </button>
                     </td>
                 </tr>
                 <?php endforeach; endif; ?>
             </tbody>
-        </table>
+                </table>
+              </div>
+            </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
     </div>
 </div>
 
@@ -149,17 +164,67 @@
     inJ.addEventListener('input', hitung); 
     inH.addEventListener('input', hitung);
 
-    function editData(id, tgl, nama, j, t, s, stat, k) {
-        document.getElementById('tanggal').value = tgl;
-        document.getElementById('nama_bahan').value = nama;
-        document.getElementById('jumlah').value = j;
-        document.getElementById('harga_satuan').value = Math.round(t / (j || 1));
-        document.getElementById('nama_supplier').value = s;
-        document.getElementById('status').value = stat;
-        document.getElementById('kasir_pencatat').value = k;
-        document.getElementById('formPembelian').action = "<?= base_url('staff/update_pembelian') ?>/" + id;
-        document.getElementById('submitBtn').innerText = "Update Data";
-        hitung();
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
+
+
+
+    
+
+   function editData(id, tgl, nama, j, t, s, stat, k) {
+    Swal.fire({
+        title: 'Edit Data Pembelian?',
+        text: 'Data akan dimuat ke dalam form untuk diperbarui.',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#198754',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Ya, edit',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('tanggal').value = tgl;
+            document.getElementById('nama_bahan').value = nama;
+            document.getElementById('jumlah').value = j;
+            document.getElementById('harga_satuan').value = Math.round(t / (j || 1));
+            document.getElementById('nama_supplier').value = s;
+            document.getElementById('status').value = stat;
+            document.getElementById('kasir_pencatat').value = k;
+
+            document.getElementById('formPembelian').action =
+                "<?= base_url('staff/update_pembelian') ?>/" + id;
+
+            document.getElementById('submitBtn').innerText = "Update Data";
+
+            hitung();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+}
+
+
+function hapusData(id) {
+    Swal.fire({
+        title: 'Yakin ingin menghapus?',
+        text: 'Data pembelian akan dihapus permanen.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Ya, hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "<?= base_url('staff/hapus_pembelian') ?>/" + id;
+        }
+    });
+}
 </script>
+
+<?php if (session()->getFlashdata('success')) : ?>
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: '<?= session()->getFlashdata('success'); ?>'
+    });
+</script>
+<?php endif; ?>
