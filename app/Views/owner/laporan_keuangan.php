@@ -97,8 +97,8 @@
         <!-- /.container-fluid -->
   </div>
   <script>
-  const BASE_EXPORT_PDF  = "/owner/laporan/export/pdf";
-  const BASE_EXPORT_WORD = "/owner/laporan/export/word";
+  const BASE_EXPORT_PDF  = "<?= base_url('owner/laporan/export/pdf') ?>";
+  const BASE_EXPORT_WORD = "<?= base_url('owner/laporan/export/word') ?>";
 
   function formatDateYYYYMMDD(d) {
     const yyyy = d.getFullYear();
