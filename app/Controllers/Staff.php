@@ -38,7 +38,7 @@ class Staff extends BaseController
             'kasir_pencatat'    => $this->request->getPost('kasir_pencatat'), // TAMBAHAN: Nama Kasir dari Form
             'id_pegawai'        => 1 // PAKSA ANGKA 1 AGAR TIDAK MATI #1452
         ]);
-
+                session()->setFlashdata('success', 'Bahan baku berhasil disimpan!');
         return redirect()->to(base_url('staff/input_pembelian'));
     }
 
@@ -58,7 +58,7 @@ class Staff extends BaseController
             'kasir_pencatat'    => $this->request->getPost('kasir_pencatat'), // TAMBAHAN: Nama Kasir saat Update
             'id_pegawai'        => 1 // AGAR TIDAK ERROR SAAT UPDATE
         ]);
-
+         session()->setFlashdata('success', 'Bahan baku berhasil diperbarui!');
         return redirect()->to(base_url('staff/input_pembelian'));
     }
 
