@@ -41,10 +41,11 @@ class OwnerLaporanController extends BaseController
             ->get()
             ->getRowArray();
 
-        $pengeluaranRow = $db->table('pengeluaran')
-            ->select('COALESCE(SUM(jumlah), 0) AS total_pengeluaran', false)
-            ->where('tanggal >=', $start)
-            ->where('tanggal <=', $end)
+        $pengeluaranRow = $db->table('pembelian_stok')
+            ->select('COALESCE(SUM(harga_total), 0) AS total_pengeluaran', false)
+            ->where('tanggal_pembelian >=', $start)
+            ->where('tanggal_pembelian <=', $end)
+            ->where('status', 'Selesai') // opsional tapi SANGAT DISARANKAN
             ->get()
             ->getRowArray();
 
@@ -60,11 +61,12 @@ class OwnerLaporanController extends BaseController
             ->get()
             ->getResultArray();
 
-        $pengeluaran = $db->table('pengeluaran')
-            ->select('id_pengeluaran, tanggal, jumlah, deskripsi, id_transaksi')
-            ->where('tanggal >=', $start)
-            ->where('tanggal <=', $end)
-            ->orderBy('tanggal', 'ASC')
+        $pengeluaran = $db->table('pembelian_stok')
+            ->select('id_pembelian_stok, tanggal_pembelian, nama_menu, jumlah_pembelian, harga_total')
+            ->where('tanggal_pembelian >=', $start)
+            ->where('tanggal_pembelian <=', $end)
+            ->where('status', 'Selesai') // agar Pending tidak ikut
+            ->orderBy('tanggal_pembelian', 'ASC')
             ->get()
             ->getResultArray();
 
@@ -165,18 +167,29 @@ class OwnerLaporanController extends BaseController
 
         $outTable = $section->addTable(['borderSize' => 6, 'borderColor' => '999999', 'cellMargin' => 80]);
         $outTable->addRow();
-        $outTable->addCell(1200)->addText('No', ['bold' => true]);
-        $outTable->addCell(2200)->addText('Tanggal', ['bold' => true]);
-        $outTable->addCell(3000)->addText('Deskripsi', ['bold' => true]);
-        $outTable->addCell(2400)->addText('Jumlah', ['bold' => true]);
+        $outTable->addCell(800)->addText('No', ['bold' => true]);
+        $outTable->addCell(1600)->addText('Tanggal', ['bold' => true]);
+        $outTable->addCell(2600)->addText('Deskripsi', ['bold' => true]);
+        $outTable->addCell(1800)->addText('Harga', ['bold' => true]);
+        $outTable->addCell(1200)->addText('Jumlah', ['bold' => true]);
+        $outTable->addCell(2000)->addText('Total', ['bold' => true]);
 
         $no = 1;
         foreach ($data['pengeluaran'] as $p) {
+
+            $jumlah = (float) ($p['jumlah_pembelian'] ?? 0);
+            $total  = (float) ($p['harga_total'] ?? 0);
+
+            // Hindari pembagian nol
+            $hargaUnit = $jumlah > 0 ? ($total / $jumlah) : 0;
+
             $outTable->addRow();
-            $outTable->addCell(1200)->addText((string) $no++);
-            $outTable->addCell(2200)->addText((string) ($p['tanggal'] ?? ''));
-            $outTable->addCell(3000)->addText((string) ($p['deskripsi'] ?? ''));
-            $outTable->addCell(2400)->addText($this->formatRupiah((float) ($p['jumlah'] ?? 0)));
+            $outTable->addCell(800)->addText((string) $no++);
+            $outTable->addCell(1600)->addText((string) ($p['tanggal_pembelian'] ?? ''));
+            $outTable->addCell(2600)->addText('Pembelian ' . ($p['nama_menu'] ?? ''));
+            $outTable->addCell(1800)->addText($this->formatRupiah($hargaUnit));
+            $outTable->addCell(1200)->addText((string) $jumlah);
+            $outTable->addCell(2000)->addText($this->formatRupiah($total));
         }
 
         $tmpDir = WRITEPATH . 'exports/';

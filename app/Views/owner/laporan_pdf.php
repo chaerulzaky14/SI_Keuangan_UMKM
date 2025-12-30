@@ -114,31 +114,42 @@
 
     <div class="section-title">Daftar Pengeluaran</div>
     <table>
-        <thead>
+    <thead>
+        <tr>
+            <th style="width: 30px;">No</th>
+            <th style="width: 90px;">Tanggal</th>
+            <th>Deskripsi</th>
+            <th style="width: 90px;">Harga</th>
+            <th style="width: 70px;">Jumlah</th>
+            <th style="width: 110px;">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if (empty($pengeluaran)): ?>
+        <tr>
+            <td colspan="6" style="text-align:center;">Tidak ada data</td>
+        </tr>
+    <?php else: ?>
+        <?php $no = 1; foreach ($pengeluaran as $p): 
+            $jumlah = (float) ($p['jumlah_pembelian'] ?? 0);
+            $total  = (float) ($p['harga_total'] ?? 0);
+            $hargaUnit = $jumlah > 0 ? ($total / $jumlah) : 0;
+        ?>
             <tr>
-                <th style="width: 40px;">No</th>
-                <th style="width: 120px;">Tanggal</th>
-                <th>Deskripsi</th>
-                <th style="width: 160px;">Jumlah</th>
+                <td><?= $no++ ?></td>
+                <td><?= esc($p['tanggal_pembelian'] ?? '') ?></td>
+                <td><?= esc('Pembelian ' . ($p['nama_menu'] ?? '')) ?></td>
+                <td class="right">
+                    Rp <?= number_format($hargaUnit, 2, ',', '.') ?>
+                </td>
+                <td class="right"><?= number_format($jumlah, 0, ',', '.') ?></td>
+                <td class="right">
+                    Rp <?= number_format($total, 2, ',', '.') ?>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php if (empty($pengeluaran)): ?>
-                <tr>
-                    <td colspan="4" style="text-align:center;">Tidak ada data</td>
-                </tr>
-            <?php else: ?>
-                <?php $no = 1;
-                foreach ($pengeluaran as $p): ?>
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= esc($p['tanggal'] ?? '') ?></td>
-                        <td><?= esc($p['deskripsi'] ?? '') ?></td>
-                        <td class="right"><?= 'Rp ' . number_format((float)($p['jumlah'] ?? 0), 2, ',', '.') ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </tbody>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    </tbody>
     </table>
 
 </body>
