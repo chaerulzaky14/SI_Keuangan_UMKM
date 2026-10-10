@@ -273,21 +273,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Checklist Persiapan Repo
 
-- [x] Nama project sudah ditentukan
-- [x] Deskripsi project sudah dibuat
-- [x] Masalah yang diselesaikan sudah dijelaskan
-- [x] Fitur utama sudah ditulis
-- [x] Teknologi stack sudah ditentukan
-- [x] Prasyarat instalasi sudah ditulis
-- [x] Instalasi dan cara menjalankan sudah dijelaskan
-- [x] Konfigurasi environment sudah ditambahkan
-- [x] Struktur folder sudah dibuat
-- [x] Cara penggunaan sudah dijelaskan
-- [x] Roadmap sudah ada
-- [x] Kontribusi sudah ditulis
-- [x] Lisensi MIT sudah ditambahkan
 
 ---
 
